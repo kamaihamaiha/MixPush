@@ -25,6 +25,7 @@ allprojects {
             allowInsecureProtocol = true
             url 'http://developer.huawei.com/repo/'
         }
+        maven { url 'https://jitpack.io' }
     }
 }
 
