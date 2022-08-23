@@ -9,6 +9,8 @@ import com.mixpush.core.MixPushHandler;
 import com.mixpush.core.MixPushMessage;
 import com.xiaomi.mipush.sdk.*;
 
+import org.json.JSONObject;
+
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,7 +32,8 @@ public class MiPushMessageReceiver extends PushMessageReceiver {
         MixPushMessage pushMessage = new MixPushMessage();
         pushMessage.setPlatform(MiPushProvider.MI);
         pushMessage.setTitle(message.getTitle());
-        pushMessage.setPayload(message.getContent());
+        JSONObject json = new JSONObject(message.getExtra());
+        pushMessage.setPayload(json.toString());
         pushMessage.setDescription(message.getDescription());
         pushMessage.setPassThrough(true);
         handler.getPassThroughReceiver().onReceiveMessage(context, pushMessage);
@@ -42,7 +45,8 @@ public class MiPushMessageReceiver extends PushMessageReceiver {
         pushMessage.setPlatform(MiPushProvider.MI);
         pushMessage.setTitle(message.getTitle());
         pushMessage.setDescription(message.getDescription());
-        pushMessage.setPayload(message.getContent());
+        JSONObject json = new JSONObject(message.getExtra());
+        pushMessage.setPayload(json.toString());
         handler.getPushReceiver().onNotificationMessageClicked(context, pushMessage);
     }
 
@@ -52,7 +56,8 @@ public class MiPushMessageReceiver extends PushMessageReceiver {
         pushMessage.setPlatform(MiPushProvider.MI);
         pushMessage.setTitle(message.getTitle());
         pushMessage.setDescription(message.getDescription());
-        pushMessage.setPayload(message.getContent());
+        JSONObject json = new JSONObject(message.getExtra());
+        pushMessage.setPayload(json.toString());
         handler.getPushReceiver().onNotificationMessageArrived(context, pushMessage);
     }
 
