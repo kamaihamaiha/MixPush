@@ -7,4 +7,3 @@ build
 
 .externalNativeBuild
 upload_jcenter.sh
-gradle.properties
