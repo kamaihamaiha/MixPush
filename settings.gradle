@@ -1,7 +1,7 @@
 //include ':example-server'
 // include ':example'
 include ':mixpush-mi'
-include ':mixpush-meizu'
+// include ':mixpush-meizu'
 include ':mixpush-oppo'
 include ':mixpush-vivo'
 include ':mixpush-huawei'
