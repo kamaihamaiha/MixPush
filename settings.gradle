@@ -1,5 +1,5 @@
 //include ':example-server'
-include ':example'
+// include ':example'
 include ':mixpush-mi'
 include ':mixpush-meizu'
 include ':mixpush-oppo'
@@ -10,7 +10,7 @@ include ':mixpush-core'
 //include ':mixpush-fcm'
 
 
-include ':mixpush-sender'
+// include ':mixpush-sender'
 
 //include ':huaweipush-server-sdk'
 
