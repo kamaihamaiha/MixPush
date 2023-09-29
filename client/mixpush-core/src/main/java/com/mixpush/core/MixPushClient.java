@@ -78,11 +78,11 @@ public class MixPushClient {
             handler.getLogger().log(TAG, "只允许在主进程初始化");
             return;
         }
-        addPlatformProviderByClassName("com.mixpush.mi.MiPushProvider");
+//        addPlatformProviderByClassName("com.mixpush.mi.MiPushProvider");
 //        addPlatformProviderByClassName("com.mixpush.meizu.MeizuPushProvider");
 //        addPlatformProviderByClassName("com.mixpush.huawei.HuaweiPushProvider");
 //        addPlatformProviderByClassName("com.mixpush.oppo.OppoPushProvider");
-//        addPlatformProviderByClassName("com.mixpush.vivo.VivoPushProvider");
+        addPlatformProviderByClassName("com.mixpush.vivo.VivoPushProvider");
 
         BaseMixPushProvider pushProvider = null;
         // 获取厂商推送
