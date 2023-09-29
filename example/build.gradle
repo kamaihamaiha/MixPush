@@ -56,7 +56,7 @@ dependencies {
 
     implementation project(path: ':mixpush-core')
     implementation project(path: ':mixpush-oppo')
-    implementation project(path: ':mixpush-meizu')
+//    implementation project(path: ':mixpush-meizu')
     implementation project(path: ':mixpush-vivo')
     implementation project(path: ':mixpush-huawei')
     implementation project(path: ':mixpush-mi')
