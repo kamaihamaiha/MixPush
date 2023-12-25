@@ -36,7 +36,7 @@ public class HonorPushProvider extends BaseMixPushProvider {
 
             @Override
             public void onFailure(int i, String s) {
-                Log.e("MixPush", "onFailure: " + i + ", " + s);
+                handler.getLogger().log(MixPushClient.TAG, "HonorPushProvider register onFailed: " + i + ", msg: " + s);
             }
         });
     }
