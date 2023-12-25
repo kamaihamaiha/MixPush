@@ -2,11 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mixpush.honor">
 
-    <meta-data
-        android:name="com.hihonor.push.app_id"
-        android:value="${HONOR_APP_ID}" />
+
 
     <application>
+
+        <meta-data
+            android:name="com.hihonor.push.app_id"
+            android:value="${HONOR_APP_ID}" />
+
         <service
             android:name=".EuHonorMsgService"
             android:exported="false">

@@ -3,6 +3,8 @@ package com.mixpush.honor;
 import android.content.Context;
 import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
+
 import com.hihonor.push.sdk.HonorPushCallback;
 import com.hihonor.push.sdk.HonorPushClient;
 import com.mixpush.core.BaseMixPushProvider;
@@ -34,7 +36,7 @@ public class HonorPushProvider extends BaseMixPushProvider {
 
             @Override
             public void onFailure(int i, String s) {
-
+                Log.e("MixPush", "onFailure: " + i + ", " + s);
             }
         });
     }
