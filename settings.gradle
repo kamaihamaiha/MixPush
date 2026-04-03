@@ -1,5 +1,5 @@
 //include ':example-server'
-// include ':example'
+include ':example'
 include ':mixpush-mi'
 // include ':mixpush-meizu'
 include ':mixpush-oppo'
@@ -24,6 +24,7 @@ project(":mixpush-mi").projectDir = new File("client/mixpush-mi")
 project(":mixpush-oppo").projectDir = new File("client/mixpush-oppo")
 project(":mixpush-vivo").projectDir = new File("client/mixpush-vivo")
 project(":mixpush-huawei").projectDir = new File("client/mixpush-huawei")
+project(":mixpush-honor").projectDir = new File("mixpush-honor")
 project(":mixpush-core").projectDir = new File("client/mixpush-core")
 
 //project(":mixpush-sender").projectDir = new File("client/mixpush-sender")

@@ -7,10 +7,11 @@ repositories {
 }
 
 android {
-    compileSdkVersion 34
+    compileSdk 34
+    namespace 'com.heytap.mcssdk'
 
     defaultConfig {
-        minSdkVersion 19
+        minSdk 19
     }
 
     buildTypes {

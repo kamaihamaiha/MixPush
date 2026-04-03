@@ -4,10 +4,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
+    namespace 'com.mixpush.honor'
 
     defaultConfig {
-        minSdkVersion 17
+        minSdk 17
 
     }
 

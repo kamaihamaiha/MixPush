@@ -3,11 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'com.huawei.agconnect'
 
 android {
-    compileSdkVersion 33
+    compileSdk 34
+    namespace 'com.mixpush.example'
     defaultConfig {
         applicationId EXAMPLE_APPLICATION_ID
-        minSdkVersion 19
-        targetSdkVersion 31
+        minSdk 19
+        targetSdk 34
         versionCode 10
         versionName "1.1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
@@ -46,7 +47,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.5.30"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.9.24"
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
     testImplementation 'junit:junit:4.13.2'
