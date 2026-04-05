@@ -1,8 +1,8 @@
 apply plugin: 'com.android.library'
 
 repositories {
-    maven {
-        url "${projectDir}/libs/repo"
+    flatDir {
+        dirs 'libs'
     }
 }
 
@@ -24,7 +24,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.heytap.msp:com.heytap.msp:3.1.0'
+    implementation(name: 'com.heytap.msp_3.1.0', ext: 'aar')
     implementation project(path: ':mixpush-core')
     implementation 'commons-codec:commons-codec:1.6'
 }

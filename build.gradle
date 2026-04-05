@@ -29,6 +29,9 @@ allprojects {
         }
         maven { url 'https://developer.hihonor.com/repo' }
         maven { url 'https://jitpack.io' }
+        flatDir {
+            dirs "$rootDir/client/mixpush-oppo/libs"
+        }
     }
 }
 
