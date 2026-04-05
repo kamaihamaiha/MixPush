@@ -6,21 +6,21 @@ android {
     compileSdk 34
     namespace 'com.mixpush.example'
     defaultConfig {
-        applicationId EXAMPLE_APPLICATION_ID
+        applicationId 'com.eusoft.ting.en'
         minSdk 19
         targetSdk 34
         versionCode 10
         versionName "1.1.0"
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
 
-        manifestPlaceholders["VIVO_APP_ID"] = EXAMPLE_VIVO_APP_ID
-        manifestPlaceholders["VIVO_APP_KEY"] = EXAMPLE_VIVO_APP_KEY
-        manifestPlaceholders["MI_APP_ID"] = EXAMPLE_MI_APP_ID
-        manifestPlaceholders["MI_APP_KEY"] = EXAMPLE_MI_APP_KEY
-        manifestPlaceholders["OPPO_APP_KEY"] = EXAMPLE_OPPO_APP_KEY
-        manifestPlaceholders["OPPO_APP_SECRET"] = EXAMPLE_OPPO_APP_SECRET
-        manifestPlaceholders["MEIZU_APP_ID"] = EXAMPLE_MEIZU_APP_ID
-        manifestPlaceholders["MEIZU_APP_KEY"] = EXAMPLE_MEIZU_APP_KEY
+        manifestPlaceholders["VIVO_APP_ID"] = ''
+        manifestPlaceholders["VIVO_APP_KEY"] = ''
+        manifestPlaceholders["MI_APP_ID"] = "2882303761517145084"
+        manifestPlaceholders["MI_APP_KEY"] = "5251714517084"
+        manifestPlaceholders["OPPO_APP_KEY"] = ''
+        manifestPlaceholders["OPPO_APP_SECRET"] = ''
+        manifestPlaceholders["MEIZU_APP_ID"] = ''
+        manifestPlaceholders["MEIZU_APP_KEY"] = ''
     }
     signingConfigs {
         release {
@@ -42,6 +42,13 @@ android {
             zipAlignEnabled false
             debuggable = true
         }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
 }
 
