@@ -2,6 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.huawei.agconnect'
 
+def releaseKeystoreFile = file('.jks')
+def hasReleaseKeystore = releaseKeystoreFile.exists()
+
 android {
     compileSdk 34
     namespace 'com.mixpush.example'
@@ -24,15 +27,19 @@ android {
     }
     signingConfigs {
         release {
-            keyAlias ''
-            keyPassword ""
-            storePassword ""
-            storeFile file('.jks')
+            if (hasReleaseKeystore) {
+                keyAlias ''
+                keyPassword ""
+                storePassword ""
+                storeFile releaseKeystoreFile
+            }
         }
     }
     buildTypes {
         release {
-            signingConfig signingConfigs.release
+            if (hasReleaseKeystore) {
+                signingConfig signingConfigs.release
+            }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -50,6 +57,10 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+}
+
+if (!hasReleaseKeystore) {
+    logger.lifecycle("example release signing disabled: ${releaseKeystoreFile} not found")
 }
 
 dependencies {

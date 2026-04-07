@@ -1,10 +1,14 @@
 apply plugin: 'maven-publish'
 
-group = findProperty("GROUP_ID") ?: project.group
-version = findProperty("VERSION_NAME") ?: project.version
+def cliProjectProperties = gradle.startParameter.projectProperties
+def jitpackGroup = cliProjectProperties.get("group")
+def jitpackVersion = cliProjectProperties.get("version")
 
-def resolvedGroupId = (findProperty("group") ?: project.group ?: findProperty("GROUP_ID"))?.toString()
-def resolvedVersion = (findProperty("version") ?: project.version ?: findProperty("VERSION_NAME"))?.toString()
+group = (jitpackGroup ?: findProperty("GROUP_ID") ?: project.group)?.toString()
+version = (jitpackVersion ?: findProperty("VERSION_NAME") ?: project.version)?.toString()
+
+def resolvedGroupId = (jitpackGroup ?: findProperty("GROUP_ID") ?: project.group)?.toString()
+def resolvedVersion = (jitpackVersion ?: findProperty("VERSION_NAME") ?: project.version)?.toString()
 def resolvedArtifactId = (findProperty("POM_ARTIFACT_ID") ?: project.name)?.toString()
 
 def isAndroidLibrary = plugins.hasPlugin('com.android.library')
