@@ -21,6 +21,10 @@ public class MiPushProvider extends BaseMixPushProvider {
         MiPushProvider.registerType = type;
         String appId = getMetaData(context, "MI_APP_ID");
         String appKey = getMetaData(context, "MI_APP_KEY");
+        if (appId == null || appId.isEmpty() || appKey == null || appKey.isEmpty()) {
+            handler.getLogger().log(TAG, "registerPush skipped, MI_APP_ID or MI_APP_KEY is empty");
+            return;
+        }
         LoggerInterface newLogger = new LoggerInterface() {
             @Override
             public void setTag(String tag) {
