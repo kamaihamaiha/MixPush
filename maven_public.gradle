@@ -1,0 +1,44 @@
+apply plugin: 'maven-publish'
+
+group = findProperty("GROUP_ID") ?: project.group
+version = findProperty("VERSION_NAME") ?: project.version
+
+def resolvedGroupId = (findProperty("group") ?: project.group ?: findProperty("GROUP_ID"))?.toString()
+def resolvedVersion = (findProperty("version") ?: project.version ?: findProperty("VERSION_NAME"))?.toString()
+def resolvedArtifactId = (findProperty("POM_ARTIFACT_ID") ?: project.name)?.toString()
+
+def isAndroidLibrary = plugins.hasPlugin('com.android.library')
+def isJavaLibrary = plugins.hasPlugin('java') || plugins.hasPlugin('java-library')
+
+if (isAndroidLibrary) {
+    android {
+        publishing {
+            singleVariant("release")
+        }
+    }
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            if (isAndroidLibrary) {
+                create("release", MavenPublication) {
+                    groupId = resolvedGroupId
+                    artifactId = resolvedArtifactId
+                    version = resolvedVersion
+                    from components.release
+                }
+            } else if (isJavaLibrary) {
+                create("release", MavenPublication) {
+                    groupId = resolvedGroupId
+                    artifactId = resolvedArtifactId
+                    version = resolvedVersion
+                    from components.java
+                }
+            }
+        }
+        repositories {
+            mavenLocal()
+        }
+    }
+}
