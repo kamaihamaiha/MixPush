@@ -2,7 +2,6 @@ package com.mixpush.vivo;
 
 import android.content.Context;
 
-import com.mixpush.core.MixPushPlatform;
 import com.mixpush.core.MixPushClient;
 import com.mixpush.core.MixPushHandler;
 import com.mixpush.core.MixPushMessage;
@@ -26,7 +25,6 @@ public class PushMessageReceiverImpl extends OpenClientPushMessageReceiver {
 
     @Override
     public void onReceiveRegId(Context context, String regId) {
-        MixPushPlatform mixPushPlatform = new MixPushPlatform(VivoPushProvider.VIVO, regId);
-        handler.getPushReceiver().onRegisterSucceed(context, mixPushPlatform);
+        VivoPushProvider.onRegIdReceived(context, regId);
     }
 }

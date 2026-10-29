@@ -17,10 +17,13 @@
             </intent-filter>
         </receiver>
 
-        <!-- 该字段大于等于480，则表示支持点击消息直接打开应用activity，优化启动慢问题。 -->
+        <!-- JAR 集成需手动声明 vivo SDK 版本。 -->
         <meta-data
             android:name="sdk_version_vivo"
-            android:value="484" />
+            android:value="517" />
+        <meta-data
+            android:name="com.vivo.push.support_monitor"
+            android:value="1" />
 
         <service
             android:name="com.vivo.push.sdk.service.CommandClientService"
